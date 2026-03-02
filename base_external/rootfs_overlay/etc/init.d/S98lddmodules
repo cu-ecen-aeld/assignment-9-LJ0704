@@ -3,19 +3,50 @@
 case "$1" in
     start)
         echo "Loading LDD modules"
-        modprobe hello
-        modprobe faulty
+
+        # Load scull
         modprobe scull
+
+        # Create scull device nodes if needed
+        if [ -e /proc/devices ]; then
+            major=$(awk "\$2==\"scull\" {print \$1}" /proc/devices)
+            if [ ! -z "$major" ]; then
+                mknod /dev/scull0 c $major 0
+                mknod /dev/scull1 c $major 1
+                mknod /dev/scull2 c $major 2
+                mknod /dev/scull3 c $major 3
+            fi
+        fi
+
+        # Load faulty
+        modprobe faulty
+
+        # Create faulty device node
+        major=$(awk "\$2==\"faulty\" {print \$1}" /proc/devices)
+        if [ ! -z "$major" ]; then
+            mknod /dev/faulty c $major 0
+        fi
+
+        # Load hello
+        modprobe hello
+
         ;;
+
     stop)
         echo "Unloading LDD modules"
-        rmmod scull
-        rmmod faulty
+
         rmmod hello
+        rmmod faulty
+        rmmod scull
+
         ;;
+
     *)
+        echo "Usage: $0 {start|stop}"
         exit 1
-        ;;
 esac
 
 exit 0
+
+
+#Reference : https://chatgpt.com/share/69a50802-7960-8009-a114-6a94a07aae17 - helped me fix bug in Assignment 5 related to buildroot
