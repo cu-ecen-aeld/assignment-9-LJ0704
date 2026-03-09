@@ -3,8 +3,8 @@
 # AESD-ASSIGNMENTS PACKAGE FOR BUILDROOT
 #
 ##############################################################
-
-AESD_ASSIGNMENTS_VERSION = ab0928c7ab7b677056a3fb2efab2c0996f728954
+#ChatGPT : https://chatgpt.com/share/69ae35ac-a2fc-8009-92ab-f80581fea5c9
+AESD_ASSIGNMENTS_VERSION = 85c69fbd6ea5022a792f941533cd85134bc2910f
 AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-LJ0704.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
@@ -33,6 +33,5 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
     echo "aesdchar" > $(TARGET_DIR)/etc/modules-load.d/aesdchar.conf
 endef
 
-# First build kernel module, then install everything else
 $(eval $(kernel-module))
 $(eval $(generic-package))
