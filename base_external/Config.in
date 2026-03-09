@@ -3,5 +3,7 @@ menu "AESD Packages"
 source "$BR2_EXTERNAL_project_base_PATH/package/aesd-assignments/Config.in"
 #Adding LLD Config.in
 source "$BR2_EXTERNAL_project_base_PATH/package/ldd/Config.in"
+#Adding aesd char driver Config.in
+#source "$BR2_EXTERNAL_project_base_PATH/package/#aesd_char_driver/Config.in"
 
 endmenu
