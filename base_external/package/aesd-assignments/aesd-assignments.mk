@@ -4,7 +4,7 @@
 #
 ##############################################################
 #ChatGPT : https://chatgpt.com/share/69ae35ac-a2fc-8009-92ab-f80581fea5c9
-AESD_ASSIGNMENTS_VERSION = b2b98feadb4f6e4fd2c5a850dcca646f1cde0091
+AESD_ASSIGNMENTS_VERSION = addb90ac2ff4bf2a8fd9a4ae0bcdf67dd87b9bfb
 AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-LJ0704.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
